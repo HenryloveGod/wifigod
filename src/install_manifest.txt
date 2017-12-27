@@ -1,0 +1,3 @@
+/usr/bin/wifidog
+/usr/bin/wdctl
+/usr/lib/libhttpd.so
