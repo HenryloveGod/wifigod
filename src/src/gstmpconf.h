@@ -115,23 +115,23 @@ static struct {
 		{oauthserv_https_port, 443,"authserv_https_port"},
 		{oauthserv_ssl_port, 443,"authserv_ssl_port"},
 		{oauthserv_http_port, 80,"authserv_http_port"},
-		{ossl_use_sni, 0,"osslusesni"},
-		{oproxy_port, 0,"oproxy_port"},
-		{ois_sslpeerverification, 1,"ois_sslpeerverification"},
-		{oauthserv_connect_timeout, 600,"oauthserv_connect_timeout"},
-		{ojs_filter, 1,"ojs_filter"},
-		{opool_mode, 1,"opool_mode"},
-		{othread_number, 10,"othread_number"},
-		{oqueue_size, 30,"oqueue_size"},
-		{owired_passed, 0,"owired_passed"},
-		{owork_mode, 0,"owork_mode"},
-		{oparse_checked, 0,"oparseChecked"},
-		{obypass_apple_cna, 1,"obypass_apple_cna"},
-		{ono_auth, 0,"ono_auth"},
-		{omqtt_port, 8883,"omqtt_port"},
+		{ossl_use_sni, 0,"sslusesni"},
+		{oproxy_port, 0,"proxy_port"},
+		{ois_sslpeerverification, 1,"is_sslpeerverification"},
+		{oauthserv_connect_timeout, 600,"authserv_connect_timeout"},
+		{ojs_filter, 1,"js_filter"},
+		{opool_mode, 1,"pool_mode"},
+		{othread_number, 10,"thread_number"},
+		{oqueue_size, 30,"queue_size"},
+		{owired_passed, 0,"wired_passed"},
+		{owork_mode, 0,"work_mode"},
+		{oparse_checked, 0,"parseChecked"},
+		{obypass_apple_cna, 1,"bypass_apple_cna"},
+		{ono_auth, 0,"no_auth"},
+		{omqtt_port, 8883,"mqtt_port"},
 
-		{oauthserv_fd,0,"oauthserv_fd"},
-		{oauthserv_fd_ref,0,"oauthserv_fd_ref"},
+		{oauthserv_fd,0,"authserv_fd"},
+		{oauthserv_fd_ref,0,"authserv_fd_ref"},
 		{oupdate_domain_interval,600,"update_domain_interval"},
 		{ocodeErrInt,DEFAULT_NOT_FOUNT_INT,NULL}
 };
@@ -380,7 +380,9 @@ char *get_apncjson(char *cnf);
 /**
  *　把当前配置的信息，存储的json数据中
  * **/
-void config_struct_to_json();
+
+cJSON * config_struct_to_json();
+
 
 /*保存当前的config_json到文件中*/
 int save_config_json_to_file(char *filepath);

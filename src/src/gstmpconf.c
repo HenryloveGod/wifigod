@@ -49,6 +49,7 @@
 #include "gs_sms.h"
 
 #define WIFIDOG_JSON "/etc/eotu/wifidog.json"
+#define WIFIDOG_JSON_new "/etc/eotu/wifidog.json.new"
 static  char *avlist,*applist,*novellist,*conflist;
 
 static cJSON *configj;
@@ -527,6 +528,8 @@ void config_json_init(void)
 	sms_init(config->sms_port_path);
 
 
+	config_struct_to_json();
+
 }
 
 
@@ -575,13 +578,6 @@ char *get_apncjson(char *cnf){
 }
 
 
-/**
- *　把当前配置的信息，存储的json数据中
- * **/
-void config_struct_to_json(){
-
-
-}
 
 
 /*保存当前的config_json到文件中*/
@@ -667,5 +663,44 @@ int set_imei()
 	return 0;
 
 }
+
+
+
+
+void add_enumi_to_json(cJSON *newj){
+	int i=0;
+	for(;config_defualt_i[i].name != ocodeErrInt;i++){
+		if(config_defualt_i[i].jkey)
+		cJSON_AddNumberToObject(newj,config_defualt_i[i].jkey,config_defualt_i[i].value);
+	}
+}
+
+void add_enums_to_json(cJSON *newj){
+	int i=0;
+	for(;config_defualt_s[i].name != ocodeErrStr;i++){
+		if(config_defualt_s[i].jkey && config_defualt_s[i].value != NULL)
+			cJSON_AddStringToObject(newj,config_defualt_s[i].jkey,config_defualt_s[i].value);
+	}
+}
+
+
+
+cJSON * config_struct_to_json(){
+	cJSON *new_config_j=cJSON_CreateObject();
+	/**
+	 * XXX
+	 * 没有做分类～～～～～ ,正犹豫，configj　与　new_config_j　的处理方式，覆盖原文件，还是新建，后续再想
+	 * */
+	add_enumi_to_json(new_config_j);
+	add_enums_to_json(new_config_j);
+
+	cJSON_Delete(configj);
+	configj = new_config_j;
+	save_config_json_to_file(WIFIDOG_JSON_new);
+
+	return new_config_j;
+
+}
+
 
 
