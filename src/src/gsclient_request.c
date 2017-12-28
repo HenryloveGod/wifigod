@@ -116,9 +116,9 @@ char * get_eotuwifi_config_json(cJSON *p)
 {
 	char *cmd,*res;
 
-	save_config_json_to_file(config_get_config()->configfile);
+	save_config_json_to_file(WIFIDOG_JSON_NEW);
 
-	safe_asprintf(&cmd,"cat %s",config_get_config()->configfile);
+	safe_asprintf(&cmd,"cat " WIFIDOG_JSON_NEW);
 	res = cmd_popen_return_string(cmd);
 	free(cmd);
 	return res;

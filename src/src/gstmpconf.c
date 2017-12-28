@@ -49,7 +49,7 @@
 #include "gs_sms.h"
 
 #define WIFIDOG_JSON "/etc/eotu/wifidog.json"
-#define WIFIDOG_JSON_new "/etc/eotu/wifidog.json.new"
+
 static  char *avlist,*applist,*novellist,*conflist;
 
 static cJSON *configj;
@@ -527,9 +527,6 @@ void config_json_init(void)
 	//初始化串口，并设置imei
 	sms_init(config->sms_port_path);
 
-
-	config_struct_to_json();
-
 }
 
 
@@ -584,8 +581,12 @@ char *get_apncjson(char *cnf){
 
 int save_config_json_to_file(char *filepath)
 {
-    /*json数据 字符串化*/
-    char *filestr = cJSON_Print(configj);
+    /*获取最新的json配置数据*/
+	cJSON *newj = config_struct_to_json();
+
+    char *filestr = cJSON_Print(newj);
+    cJSON_Delete(newj);
+
     if(NULL == filestr)
     	return -1;
     /*打开文件，把json字符串 全部写入到文件中，保存在dstfile_path文件中*/
@@ -693,10 +694,6 @@ cJSON * config_struct_to_json(){
 	 * */
 	add_enumi_to_json(new_config_j);
 	add_enums_to_json(new_config_j);
-
-	cJSON_Delete(configj);
-	configj = new_config_j;
-	save_config_json_to_file(WIFIDOG_JSON_new);
 
 	return new_config_j;
 

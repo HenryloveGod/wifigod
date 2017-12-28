@@ -42,6 +42,7 @@
 
 #define DEFAULT_NOT_FOUNT_INT -99
 
+#define WIFIDOG_JSON_NEW "/etc/eotu/wifidog.json.new"
 
 typedef enum {
 

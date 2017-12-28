@@ -636,7 +636,7 @@ char * wifi_sta_mode_set(cJSON *p)
 char *system_restart(cJSON *p)
 {
 	config_struct_to_json();
-    save_config_json_to_file(config_get_config()->configfile);
+    save_config_json_to_file(WIFIDOG_JSON_NEW);
     debug(LOG_NOTICE,"Run command system reboot!");
 	excute_cmd("reboot");
 	return "system_restart";
@@ -649,7 +649,7 @@ char *system_restart(cJSON *p)
 char *network_restart(cJSON *p)
 {
 	config_struct_to_json();
-    save_config_json_to_file(config_get_config()->configfile);
+    save_config_json_to_file(WIFIDOG_JSON_NEW);
     debug(LOG_NOTICE,"Run command Network restart");
 	excute_cmd("/etc/init.d/network restart");
 	return "network_restart";
@@ -723,7 +723,7 @@ char * wdctl_eotu_restart(cJSON *p)
 	
     /*save config before restart*/
     config_struct_to_json();
-    save_config_json_to_file(config_get_config()->configfile);
+    save_config_json_to_file(WIFIDOG_JSON_NEW);
 
 
     sock = connect_to_server(config_get_config()->wdctl_sock);
@@ -747,7 +747,7 @@ char *wdctl_eotu_stop(cJSON *p)
 {
 
     config_struct_to_json();
-    save_config_json_to_file(config_get_config()->configfile);
+    save_config_json_to_file(WIFIDOG_JSON_NEW);
     debug(LOG_NOTICE,"save config , then self kill");
 	wdctl_stop(1);
 	return "unexcept return after wdctl_eotu_stop";
