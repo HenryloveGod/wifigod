@@ -3,7 +3,7 @@
 
 **[改动自apfree_wifidog](https://github.com/liudf0716/apfree_wifidog)**
 
-## 功能说明
+## 新增功能
 
 * 用json格式做配置文档．json数据文件格式，单行第一个字符"#"，为注释，读取时将去除．原config_init不变，初始化后，在读取wifidog.json文件，重新赋值.
 
