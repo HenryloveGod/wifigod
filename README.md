@@ -1,4 +1,4 @@
-![wifigod](http://img.zwbk.org/baike/bpic/2011/09/23/20110923025816389_9495.jpg)
+![wifigod](http://www.cntour2.com/uploadpic/ckeditor/0ogY1ikWljqbT8qa65ei.jpg)
 
 
 # wifigod
