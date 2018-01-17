@@ -309,7 +309,11 @@ static struct {
 	/****
 	 * mqtt_server
 	 * ****/
-	{omqtt_hostname, "www.mqtt.com","mqtt_hostname"},
+	{omqtt_hostname, "www.eotu.com","mqtt_hostname"},
+	{omqtt_addr, "localhost","mqtt_addr"},
+	{omqtt_cafile, "/etc/eotu/apfree.ca","mqtt_cafile"},
+	{omqtt_crtfile, "/etc/eotu/apfree.crt","mqtt_crtfile"},
+	{omqtt_keyfile, "/etc/eotu/apfree.key","mqtt_keyfile"},
 	/****
 	 * rules
 	 * ****/

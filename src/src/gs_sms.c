@@ -408,6 +408,9 @@ char * smsreturn_expect(char *expect) {
 
   res = safe_malloc(1024);
 
+  if(config_get_config()->is_sms_work==0)
+	  return "sms not work";
+
   int i=0;
   unsigned long timeout;
   unsigned int a;

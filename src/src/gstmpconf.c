@@ -443,6 +443,7 @@ void set_config_json_to_old(){
 	set_configs_fromenum(omqtt_cafile,&mqtt_server->cafile);
 	set_configs_fromenum(omqtt_keyfile,&mqtt_server->keyfile);
 	set_configs_fromenum(omqtt_crtfile,&mqtt_server->crtfile);
+	set_configi_fromenum(omqtt_port,&mqtt_server->port);
 	config->mqtt_server  = mqtt_server;
 	//<<<
 

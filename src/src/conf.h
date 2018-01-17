@@ -37,17 +37,17 @@
 
 /** Defaults configuration values */
 #ifndef SYSCONFDIR
-#define DEFAULT_CONFIGFILE "/etc/wifidog.conf"
-#define DEFAULT_HTMLMSGFILE "/etc/wifidog-msg.html"
-#define DEFAULT_REDIRECTFILE "/etc/wifidog-redir.html"
-#define	DEFAULT_INTERNET_OFFLINE_FILE	"/etc/internet-offline.html"
-#define	DEFAULT_AUTHSERVER_OFFLINE_FILE	"/etc/authserver-offline.html"
+#define DEFAULT_CONFIGFILE "/etc/eotu/wifidog.conf"
+#define DEFAULT_HTMLMSGFILE "/etc/eotu/wifidog-msg.html"
+#define DEFAULT_REDIRECTFILE "/etc/eotu/wifidog-redir.html"
+#define	DEFAULT_INTERNET_OFFLINE_FILE	"/etc/eotu/internet-offline.html"
+#define	DEFAULT_AUTHSERVER_OFFLINE_FILE	"/etc/eotu/authserver-offline.html"
 #else
 #define DEFAULT_CONFIGFILE SYSCONFDIR"/wifidog.conf"
 #define DEFAULT_HTMLMSGFILE SYSCONFDIR"/wifidog-msg.html"
 #define DEFAULT_REDIRECTFILE SYSCONFDIR"/wifidog-redir.html"
-#define	DEFAULT_INTERNET_OFFLINE_FILE	SYSCONFDIR"/etc/internet-offline.html"
-#define	DEFAULT_AUTHSERVER_OFFLINE_FILE	SYSCONFDIR"/etc/authserver-offline.html"
+#define	DEFAULT_INTERNET_OFFLINE_FILE	SYSCONFDIR"/etc/eotu/internet-offline.html"
+#define	DEFAULT_AUTHSERVER_OFFLINE_FILE	SYSCONFDIR"/etc/eotu/authserver-offline.html"
 #endif
 #define DEFAULT_DAEMON 1
 #define DEFAULT_DEBUGLEVEL LOG_INFO
@@ -90,10 +90,10 @@
 #define FWRULESET_LOCKED_USERS "locked-users"
 /*@}*/
 
-#define	DEFAULT_CA_CRT_FILE		"/etc/apfree.ca"
-#define	DEFAULT_SVR_CRT_FILE	"/etc/apfree.crt"
-#define	DEFAULT_SVR_KEY_FILE	"/etc/apfree.key"
-#define DEFAULT_WWW_PATH		"/etc/www/"
+#define	DEFAULT_CA_CRT_FILE		"/etc/eotuclient.csr:wq"
+#define	DEFAULT_SVR_CRT_FILE	"/etc/eotu/client.crt"
+#define	DEFAULT_SVR_KEY_FILE	"/etc/eotu/client.key"
+#define DEFAULT_WWW_PATH		"/www/"
 
 #define DEFAULT_MQTT_SERVER		"wifidog.kunteng.org"
 

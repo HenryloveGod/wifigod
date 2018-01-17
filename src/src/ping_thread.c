@@ -164,6 +164,8 @@ char *coin_ping()
 void
 thread_ping(void *arg)
 {
+	return ;
+
     pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
     pthread_mutex_t cond_mutex = PTHREAD_MUTEX_INITIALIZER;
     struct timespec timeout;

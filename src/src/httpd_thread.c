@@ -49,6 +49,9 @@
 void
 thread_httpd(void *args)
 {
+
+
+
 	void	**params;
 	httpd	*webserver;
 	request	*r;
